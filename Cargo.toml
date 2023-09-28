@@ -1,6 +1,6 @@
 [package]
 name = "max_rects"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 authors = ["Jeremy Gray <jeremycgray@gmail.com>"]
 repository = "https://github.com/jeremycg/max_rects/"

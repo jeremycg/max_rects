@@ -16,7 +16,7 @@
 //! Add this to your `Cargo.toml`:
 //! ```toml
 //! [dependencies]
-//! max_rects = "1.0.1"
+//! max_rects = "1.0.2"
 //! ```
 //!
 //! ## Examples
