@@ -1,0 +1,13 @@
+[package]
+name = "max_rects"
+version = "1.0.0"
+edition = "2021"
+authors = ["Jeremy Gray <jeremycgray@gmail.com>"]
+
+
+[dependencies]
+rayon = "1.5.1"
+image = "0.23"
+imageproc = "0.22.0"
+rand = "0.8"
+clap = "3"
