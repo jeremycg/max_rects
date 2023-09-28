@@ -1,3 +1,69 @@
+//! # Max Rects
+//!
+//! `max_rects` is a library for solving 2D bin packing problems.
+//! It provides a collection of algorithms and utilities for arranging
+//! items within bins in an efficient manner, aiming to use as few bins as possible.
+//!
+//! This library offers structures to represent bins and boxes, and implements the MaxRects algorithm
+//! to find an efficient packing solution. Additionally, it provides a visualization utility to generate
+//! visual representations of packing solutions.
+//!
+//! ## Features
+//! - MaxRects bin packing algorithm
+//! - Visualization of packing solutions
+//!
+//! ## Usage
+//! Add this to your `Cargo.toml`:
+//! ```toml
+//! [dependencies]
+//! max_rects = "1.0.1"
+//! ```
+//!
+//! ## Examples
+//! Here's a basic example of how you might use `max_rects`:
+//!
+//! ```rust
+//! extern crate max_rects;
+//! use max_rects::{bucket::Bucket, packing_box::PackingBox, calculate_packed_percentage, max_rects::MaxRects};
+//!
+//! fn main() {
+//!     let bins = vec![Bucket::new(200, 200, 0, 0, 1)];
+//!     let boxes = vec![PackingBox::new(50, 50)];
+//!
+//!     let mut problem = MaxRects::new(boxes.clone(), bins.clone());
+//!     let (placed, _, _) = problem.place();
+//!       
+//!     let percentage = calculate_packed_percentage(&boxes, &bins);
+//!     println!("Packed percentage: {}%", percentage);
+//! }
+//! ```
+//!
+//! ## Visualization
+//! The library includes a `visualizer` module that you can use to generate images
+//! visualizing the packing solution:
+//!
+//! ```rust
+//! extern crate max_rects;
+//! use max_rects::{visualizer, bucket::Bucket, packing_box::PackingBox, max_rects::MaxRects};
+//!
+//! fn main() {
+//!     let bins = vec![Bucket::new(200, 200, 0, 0, 1)];
+//!     let boxes = vec![PackingBox::new(50, 50)];
+//!     
+//!     let mut problem = MaxRects::new(boxes, bins);
+//!     let (placed, _, _) = problem.place();
+//!     
+//!     // visualizer::generate_visualization(&placed, &bins);
+//! }
+//! ```
+//!
+//! ## License
+//! This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+//!
+//! ## Contribution
+//! Contributions are welcome! Please feel free to open issues and submit pull requests.
+//!
+
 pub mod bucket;
 pub mod max_rects;
 pub mod packing_box;
