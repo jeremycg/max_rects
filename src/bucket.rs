@@ -4,7 +4,7 @@
 ///
 /// Creating a new `Bucket` and accessing its properties:
 /// ```
-/// use max_rects::Bucket;
+/// use max_rects::bucket::Bucket;
 ///
 /// let bucket = Bucket::new(10, 20, 5, 5, 1);
 /// assert_eq!(bucket.width, 10);

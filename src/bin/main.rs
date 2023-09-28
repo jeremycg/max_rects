@@ -3,15 +3,11 @@ use rand::Rng;
 
 use clap::{App, Arg};
 
-mod bucket;
-mod max_rects;
-mod packing_box;
-mod visualizer;
-
-use bucket::Bucket;
-use max_rects::MaxRects;
-use packing_box::PackingBox;
-use visualizer::generate_visualization;
+use max_rects::bucket::Bucket;
+use max_rects::calculate_packed_percentage;
+use max_rects::max_rects::MaxRects;
+use max_rects::packing_box::PackingBox;
+use max_rects::visualizer::generate_visualization;
 
 /// Validates if a string can be parsed to an i32.
 ///
@@ -32,7 +28,7 @@ fn is_i32(val: &str) -> Result<(), String> {
 /// - A tuple containing two i32 values representing the number of boxes and bins respectively.
 fn parse_arguments() -> (i32, i32) {
     let matches = App::new("Box Packing")
-        .version("1.0")
+        .version("1.0.1")
         .about("Generates a visualization based on the number of boxes and bins")
         .arg(
             Arg::new("boxes")
@@ -60,25 +56,6 @@ fn parse_arguments() -> (i32, i32) {
     let num_bins = matches.value_of("bins").unwrap().parse::<usize>().unwrap() as i32;
 
     (num_boxes, num_bins)
-}
-
-fn calculate_packed_percentage(placed_boxes: &[PackingBox], bins: &[Bucket]) -> f32 {
-    // Summing up the area of all bins
-    let total_bin_area: i32 = bins.iter().map(|bin| bin.width * bin.height).sum();
-
-    // Summing up the area of all placed boxes
-    let total_placed_box_area: i32 = placed_boxes
-        .iter()
-        .map(|box_item| box_item.width * box_item.height)
-        .sum();
-
-    // Checking for zero to prevent division by zero
-    if total_bin_area == 0 {
-        return 0.0;
-    }
-
-    // Calculating the percentage
-    (total_placed_box_area as f32 / total_bin_area as f32) * 100.0
 }
 
 fn main() {

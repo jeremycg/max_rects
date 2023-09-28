@@ -5,7 +5,7 @@ use crate::bucket::Bucket;
 ///
 /// Creating a new `PackingBox`, placing it, and accessing its properties:
 /// ```
-/// use max_rects::PackingBox;
+/// use max_rects::packing_box::PackingBox;
 ///
 /// let mut box_item = PackingBox::new(5, 6);
 /// assert_eq!(box_item.width, 5);

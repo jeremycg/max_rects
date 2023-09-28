@@ -24,12 +24,13 @@ use crate::packing_box::PackingBox;
 /// ```rust
 /// use max_rects::bucket::Bucket;
 /// use max_rects::packing_box::PackingBox;
+/// use max_rects::visualizer::generate_visualization;
 ///
 /// // Assume `placed_boxes` and `bins` are already populated
 /// let placed_boxes: Vec<PackingBox> = Vec::new();  // Your actual placed_boxes vector
 /// let bins: Vec<Bucket> = Vec::new();  // Your actual bins vector
 ///
-/// generate_visualization(&placed_boxes, &bins);
+/// // generate_visualization(&placed_boxes, &bins);
 /// // This will generate an image named 'output.png' visualizing the packed bins and boxes.
 /// ```
 pub fn generate_visualization(placed_boxes: &[PackingBox], bins: &Vec<Bucket>) {
